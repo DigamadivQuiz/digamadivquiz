@@ -1,13 +1,6 @@
 <template>
   <div class="container">
-     <div class="row">
-        <div class="col">
-           <h1>hohohoho</h1>
-        </div>
-        <div class="col">
-           <h1>100</h1>
-        </div>
-     </div>
+     <h1>hohohohohoh</h1>
   </div>
 </template>
 

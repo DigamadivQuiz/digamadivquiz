@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    {{ rooms }}
+    <Navbar />
+    <Results />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import db from '../config/firebase.js'
+import Results from "../components/Results"
+import Navbar from "../components/Navbar"
 
 export default {
   name: 'home',
@@ -14,6 +17,10 @@ export default {
     return {
       rooms: []
     }
+  },
+  components : {
+    Results,
+    Navbar
   },
   methods: {
     fetchData () {
@@ -29,7 +36,7 @@ export default {
     }
   },
   created () {
-    this.fetchData()
+    // this.fetchData()
   }
 }
 </script>
