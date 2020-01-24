@@ -3,9 +3,8 @@
     <div id="nav">
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
-      
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -31,49 +30,52 @@
   color: #42b983;
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Fondamento|Gelasio|Patrick+Hand+SC|Playfair+Display+SC|Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fondamento|Gelasio|Patrick+Hand+SC|Playfair+Display+SC|Roboto&display=swap");
 html {
-   font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 body {
-   background-color: rgb(255, 244, 244)
+  background-image: url("./assets/bg2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 header {
-   justify-content: center;
-   display: flex;
-   height: 150px;
-   align-items: center;
-   text-align: center;
+  justify-content: center;
+  display: flex;
+  height: 150px;
+  align-items: center;
+  text-align: center;
 }
 a {
-   color: #917C78;
+  color: #917c78;
 }
 a:hover {
-   text-decoration: none;
-   scroll-behavior: smooth;
-   color:  rgb(233, 32, 65);
+  text-decoration: none;
+  scroll-behavior: smooth;
+  color: rgb(233, 32, 65);
 }
 .navbar {
-   background-color: transparent;;
+  background-color: transparent;
 }
 
 .navbar-toggler i {
-   color: whitesmoke;
-   font-size: 25px;
+  color: whitesmoke;
+  font-size: 25px;
 }
 
 .navbar-nav {
-   padding: 4;
+  padding: 4;
 }
 
 .nav-link {
-   color: rgb(94, 88, 86);
-   text-transform: uppercase;
-   font-family: 'Playfair Display SC', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Playfair Display SC", sans-serif;
 }
 
 .nav-link:hover {
-   opacity: 0.5;    
-   color: rgb(233, 32, 65); 
+  opacity: 0.5;
+  color: rgb(233, 32, 65);
 }
 </style>

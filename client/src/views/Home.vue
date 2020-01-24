@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <Navbar />
-    <Results />
+    <PlayerRoomReady />
+    <Footer />
   </div>
 </template>
 
@@ -10,6 +11,8 @@
 import db from '../config/firebase.js'
 import Results from "../components/Results"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
+import PlayerRoomReady from "../components/PlayerRoomReady"
 
 export default {
   name: 'home',
@@ -20,7 +23,9 @@ export default {
   },
   components : {
     Results,
-    Navbar
+    Navbar,
+    Footer,
+    PlayerRoomReady
   },
   methods: {
     fetchData () {
@@ -36,7 +41,7 @@ export default {
     }
   },
   created () {
-    // this.fetchData()
+    this.fetchData()
   }
 }
 </script>
