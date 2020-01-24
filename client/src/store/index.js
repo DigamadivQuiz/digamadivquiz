@@ -23,7 +23,8 @@ export default new Vuex.Store({
     rooms: [],
     room: {
       players: []
-    }
+    },
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam facere laborum nam aspernatur praesentium repellat? Corrupti quasi dolorum itaque repellat? Sapiente nostrum saepe ab ex amet facilis minus numquam dolor eaque commodi expedita, nemo quae eos aliquam quos nobis molestias! Amet possimus itaque iusto enim blanditiis molestiae non, cum sed.'
   },
   mutations: {
     emptyRooms(state) {
@@ -57,8 +58,7 @@ export default new Vuex.Store({
         players: [data.playerName],
         ready: false,
         playing: 'wait',
-        scoreOne: 0,
-        scoreTwo: 0
+        winner: ''
       })
     },
     enterRoom({ commit }, data) {
@@ -96,7 +96,8 @@ export default new Vuex.Store({
     playingStat({ commit }, data) {
       const roomRef = db.collection('rooms').doc(data.roomId)
       roomRef.update({
-        playing: 'done'
+        playing: 'done',
+        winner: data.playerName
       })
     }
   },
