@@ -1,7 +1,10 @@
 <template>
   <div class="game">
-    <div class="card w-75 text-center py-4 mx-auto"></div>
-    <question :question="question" />
+    <!-- <div class="card w-75 text-center py-4 mx-auto"></div> -->
+    <question 
+    :question="question" 
+    :questionIndex="questionIndex"
+    />
     <answer
       :answer="answer"
       :answers="answers"
@@ -9,52 +12,53 @@
       :currentScore="currentScore"
       @update-score="addScore"
     />
-    <button @click.prevent="getQuestion">NEXT</button>
+    <div class="text-center">
+      <button class="btn btn-lg btn-danger px-5 mt-5" @click.prevent="getQuestion">Next Question</button>
+    </div>
   </div>
 </template>
 
 <script>
-import question from '@/components/Question.vue'
-import answer from '@/components/Answer.vue'
+import question from "@/components/Question.vue";
+import answer from "@/components/Answer.vue";
 export default {
-  data () {
+  data() {
     return {
       questions: this.$store.state.questions,
-      question: '',
-      answer:[],
+      question: "",
+      answer: [],
       answers: this.$store.state.answers,
       object: {},
-      score:0,
-      currentScore:0,
-      questionIndex:0
-    }
+      score: 0,
+      currentScore: 0,
+      questionIndex: 0,
+    };
   },
   created() {
-    console.log('cek datanya ==========>', this.questions)
-    this.getQuestion()
+    console.log("cek datanya ==========>", this.questions);
+    this.getQuestion();
   },
-  methods : {
-    getQuestion (answer) {
+  methods: {
+    getQuestion(answer) {
       if (this.questionIndex < 5) {
-      this.questionIndex += 1
-        this.object = this.questions.shift()
-        this.question = Object.keys(this.object)[0]
-        this.answer = Object.values(this.object)[0]
-        this.currentScore = this.score
-      }
-      else {
+        this.questionIndex += 1;
+        this.object = this.questions.shift();
+        this.question = Object.keys(this.object)[0];
+        this.answer = Object.values(this.object)[0];
+        this.currentScore = this.score;
+      } else {
         // ke result
       }
     },
     addScore(value) {
-      this.score += value
+      this.score += value;
     }
   },
-  components : {
+  components: {
     question,
     answer
   }
-}
+};
 </script>
 
 <style>

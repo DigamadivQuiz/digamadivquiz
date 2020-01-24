@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Navbar />
+    <!-- <Navbar /> -->
     <!-- <PlayerRoomReady /> -->
-    <QuestionCardRadio />
-    <Footer />
+    <!-- <Footer /> -->
+    
   </div>
 </template>
 
@@ -14,7 +14,6 @@ import Results from "../components/Results"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import PlayerRoomReady from "../components/PlayerRoomReady"
-import QuestionCardRadio from "../components/QuestionCardRadio"
 import FormName from '../components/FormName'
 
 export default {
@@ -25,7 +24,9 @@ export default {
     }
   },
   components: {
-    FormName
+    FormName,
+    Navbar,
+    Footer
   }
 }
 </script>
