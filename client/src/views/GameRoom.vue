@@ -1,25 +1,32 @@
 <template>
   <div class="game">
     <div class="card w-75 text-center py-4 mx-auto"></div>
-    <div class="row">{{ question }}</div>
-    <div class="row">
-      <div class="col">{{ answer }}</div>
-    </div>
+    <question :question="question" />
+    <answer
+      :answer="answer"
+      :answers="answers"
+      :score="score"
+      :currentScore="currentScore"
+      @update-score="addScore"
+    />
+    <button @click.prevent="getQuestion">NEXT</button>
   </div>
 </template>
 
 <script>
+import question from '@/components/Question.vue'
+import answer from '@/components/Answer.vue'
 export default {
   data () {
     return {
       questions: this.$store.state.questions,
       question: '',
       answer:[],
+      answers: this.$store.state.answers,
       object: {},
-      result: {
-        corrects:0,
-        incorrects:0
-      }
+      score:0,
+      currentScore:0,
+      questionIndex:0
     }
   },
   created() {
@@ -27,13 +34,25 @@ export default {
     this.getQuestion()
   },
   methods : {
-    getQuestion: function(answer) {
-      this.object = this.questions.shift()
-      this.question = Object.keys(this.object)[0]
-      this.answer = Object.values(this.object)[0]
-      console.log('pertanyaannya    :', this.question)
-      console.log('jawabannya       :', this.answer)
+    getQuestion (answer) {
+      if (this.questionIndex < 5) {
+      this.questionIndex += 1
+        this.object = this.questions.shift()
+        this.question = Object.keys(this.object)[0]
+        this.answer = Object.values(this.object)[0]
+        this.currentScore = this.score
+      }
+      else {
+        // ke result
+      }
+    },
+    addScore(value) {
+      this.score += value
     }
+  },
+  components : {
+    question,
+    answer
   }
 }
 </script>
