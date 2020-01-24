@@ -1,19 +1,23 @@
 <template>
   <div class="game">
-    <!-- <div class="card w-75 text-center py-4 mx-auto"></div> -->
-    <question 
-    :question="question" 
-    :questionIndex="questionIndex"
+    <PlayerRoomReady
+      v-if="!room.playing"
     />
-    <answer
-      :answer="answer"
-      :answers="answers"
-      :score="score"
-      :currentScore="currentScore"
-      @update-score="addScore"
-    />
-    <div class="text-center">
-      <button class="btn btn-lg btn-danger px-5 mt-5" @click.prevent="getQuestion">Next Question</button>
+    <div v-if="room.playing">
+      <question 
+        :question="question" 
+        :questionIndex="questionIndex"
+      />
+      <answer
+        :answer="answer"
+        :answers="answers"
+        :score="score"
+        :currentScore="currentScore"
+        @update-score="addScore"
+      />
+      <div class="text-center">
+        <button class="btn btn-lg btn-danger px-5 mt-5" @click.prevent="getQuestion">Next Question</button>
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +25,7 @@
 <script>
 import question from "@/components/Question.vue";
 import answer from "@/components/Answer.vue";
+import PlayerRoomReady from '@/components/PlayerRoomReady.vue'
 export default {
   data() {
     return {
@@ -31,12 +36,20 @@ export default {
       object: {},
       score: 0,
       currentScore: 0,
-      questionIndex: 0,
-    };
+      questionIndex: 0
+    }
   },
   created() {
-    console.log("cek datanya ==========>", this.questions);
-    this.getQuestion();
+    console.log('cek datanya ==========>', this.questions)
+    this.getQuestion()
+    this.$store.dispatch('gameRoom', {
+      roomId: this.$route.params.id
+    })
+  },
+  computed: {
+    room () {
+      return this.$store.state.room
+    }
   },
   methods: {
     getQuestion(answer) {
@@ -56,7 +69,8 @@ export default {
   },
   components: {
     question,
-    answer
+    answer,
+    PlayerRoomReady
   }
 };
 </script>

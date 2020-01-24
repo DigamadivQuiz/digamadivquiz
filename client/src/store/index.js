@@ -20,7 +20,10 @@ export default new Vuex.Store({
       ['jaw 1', 'jaw 2', 'jaw 3', 'jaw 4'],
       ['jawabannya 1', 'jawabannya 2', 'jawabannya 3', 'jawabannya 4'],
       ['jawabancoy 1', 'jawabancoy 2', 'jawabancoy 3', 'jawabancoy 4']],
-    rooms: []
+    rooms: [],
+    room: {
+      players: []
+    }
   },
   mutations: {
     emptyRooms(state) {
@@ -28,6 +31,9 @@ export default new Vuex.Store({
     },
     fetchRooms(state, rooms) {
       state.rooms = rooms
+    },
+    setRoom(state, room) {
+      state.room = room
     }
   },
   actions: {
@@ -49,7 +55,8 @@ export default new Vuex.Store({
       return db.collection('rooms').add({
         name: data.roomName,
         players: [data.playerName],
-        ready: false
+        ready: false,
+        playing: false
       })
     },
     enterRoom({ commit }, data) {
@@ -57,6 +64,19 @@ export default new Vuex.Store({
       return roomRef.update({
         players: firebase.firestore.FieldValue.arrayUnion(data.playerName),
         ready: true
+      })
+    },
+    gameRoom({ commit }, data) {
+      db.collection('rooms').doc(data.roomId)
+        .onSnapshot((doc) => {
+          const room = doc.data()
+          this.commit('setRoom', room)
+        })
+    },
+    gamePlaying({ commit }, data) {
+      const roomRef = db.collection('rooms').doc(data.roomId)
+      roomRef.update({
+        playing: true
       })
     }
   },

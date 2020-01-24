@@ -1,19 +1,13 @@
 <template>
-  <div class="home">
-    <!-- <Navbar /> -->
-    <!-- <PlayerRoomReady /> -->
-    <!-- <Footer /> -->
-    
+  <div class="container">
+    <div class="row">
+      <FormName/>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import db from '../config/firebase.js'
-import Results from "../components/Results"
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import PlayerRoomReady from "../components/PlayerRoomReady"
 import FormName from '../components/FormName'
 
 export default {
@@ -24,9 +18,7 @@ export default {
     }
   },
   components: {
-    FormName,
-    Navbar,
-    Footer
+    FormName
   }
 }
 </script>

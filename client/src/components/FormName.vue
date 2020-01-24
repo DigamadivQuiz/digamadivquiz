@@ -1,13 +1,13 @@
 <template>
-  <div class="col">
+  <div class="col-6 offset-3 col-md-4 offset-md-4 mt-5 text-center">
     <form @submit.prevent="addName">
       <div class="form-group">
-        <label for="playerName">Player Name</label>
+        <label class="text-white" for="playerName">Player Name</label>
         <input type="text" class="form-control" id="playerName" placeholder="Gladiator" required
           v-model="playerName"
         >
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Enter Name</button>
     </form>
   </div>
 </template>
