@@ -34,12 +34,6 @@
 html {
   font-family: "Roboto", sans-serif;
 }
-body {
-  /* background-image: url("./assets/bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-}
 header {
   justify-content: center;
   display: flex;

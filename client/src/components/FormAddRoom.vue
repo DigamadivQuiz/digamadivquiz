@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="my-5 text-center">
     <form @submit.prevent="addRoom">
       <div class="form-group">
-        <label for="roomName">Room Name</label>
+        <label class="text-white" for="roomName">Room Name</label>
         <input type="text" class="form-control" id="roomName" placeholder="Colosseum" required
           v-model="roomName"
         >
