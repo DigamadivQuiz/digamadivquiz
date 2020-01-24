@@ -7,7 +7,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-<<<<<<< HEAD
     questions: [
       { "pertanyaan 1": [{ 1: 'jawaban 1' }, { 0: 'jawaban 2' }, { 0: 'jawaban 3' }, { 0: 'jawaban 4' }] },
       { "pertanyaan 2": [{ 0: 'jawaban 1' }, { 0: 'jawaban 2' }, { 1: 'jawaban 3' }, { 0: 'jawaban 4' }] },
@@ -21,9 +20,7 @@ export default new Vuex.Store({
       ['jaw 1', 'jaw 2', 'jaw 3', 'jaw 4'],
       ['jawabannya 1', 'jawabannya 2', 'jawabannya 3', 'jawabannya 4'],
       ['jawabancoy 1', 'jawabancoy 2', 'jawabancoy 3', 'jawabancoy 4']]
-=======
     rooms: []
->>>>>>> development
   },
   mutations: {
     emptyRooms (state) {
