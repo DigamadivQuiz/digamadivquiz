@@ -35,10 +35,10 @@ html {
   font-family: "Roboto", sans-serif;
 }
 body {
-  background-image: url("./assets/bg2.jpg");
+  /* background-image: url("./assets/bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 header {
   justify-content: center;
@@ -69,7 +69,7 @@ a:hover {
 }
 
 .nav-link {
-  color: white;
+  color: rgb(94, 88, 86);
   text-transform: uppercase;
   font-family: "Playfair Display SC", sans-serif;
 }

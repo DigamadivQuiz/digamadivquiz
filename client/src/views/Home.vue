@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <Navbar />
-    <PlayerRoomReady />
+    <!-- <PlayerRoomReady /> -->
+    <QuestionCardRadio />
     <Footer />
   </div>
 </template>
@@ -13,6 +14,7 @@ import Results from "../components/Results"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import PlayerRoomReady from "../components/PlayerRoomReady"
+import QuestionCardRadio from "../components/QuestionCardRadio"
 
 export default {
   name: 'home',
@@ -25,7 +27,8 @@ export default {
     Results,
     Navbar,
     Footer,
-    PlayerRoomReady
+    PlayerRoomReady,
+    QuestionCardRadio
   },
   methods: {
     fetchData () {

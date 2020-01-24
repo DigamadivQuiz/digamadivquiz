@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card text-center">
-      <div class="card-header">Room Name</div>
+      <div class="card-header">{{roomName}}</div>
       <div class="card-body">
          <div class="row my-5">
             <div class="col">
@@ -26,8 +26,9 @@ export default {
   name : `playerRoom`,
   data () {
     return {
-      player1 : 'Ini dari state player 1',
-      player2 : 'Ini dari state player 2'
+      roomName : 'ini dari state roomName',
+      player1 : 'Ini dari state player1',
+      player2 : 'Ini dari state player2'
     }
   }
 };
