@@ -1,16 +1,24 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <div id="nav">
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
     </div>
+=======
+>>>>>>> development
     <router-view />
   </div>
 </template>
 
 <style>
+<<<<<<< HEAD
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+=======
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+>>>>>>> development
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
