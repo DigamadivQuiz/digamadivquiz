@@ -15,36 +15,23 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import PlayerRoomReady from "../components/PlayerRoomReady"
 import QuestionCardRadio from "../components/QuestionCardRadio"
+import FormName from '../components/FormName'
 
 export default {
   name: 'home',
-  data () {
-    return {
-      rooms: []
+  computed: {
+    rooms () {
+      return this.$store.state.rooms
     }
   },
-  components : {
-    Results,
-    Navbar,
-    Footer,
-    PlayerRoomReady,
-    QuestionCardRadio
-  },
-  methods: {
-    fetchData () {
-      db.collection('rooms')
-        .onSnapshot((doc) => {
-          this.rooms = []
-          doc.docs.forEach((document) => {
-            const updatedRoom = document.data()
-            updatedRoom.id = document.id
-            this.rooms.push(updatedRoom)
-          })
-        })
-    }
-  },
-  created () {
-    this.fetchData()
+  components: {
+    FormName
   }
 }
 </script>
+
+<style>
+body {
+  background-image: url('https://images8.alphacoders.com/912/912409.png');
+}
+</style>
