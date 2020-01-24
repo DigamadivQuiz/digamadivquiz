@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-6 offset-3 col-md-4 offset-md-4">
         <FormAddRoom />
       </div>
+      <div class="col-4"></div>
       <RoomCard
         v-for="room in rooms" :key="room.id"
         :room="room"

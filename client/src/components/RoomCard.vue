@@ -3,8 +3,12 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ room.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Status: {{ status }} {{ room.ready }}</h6>
-        <button class="btn btn-dark" @click="enterRoom">Enter</button>
+        <h6 class="card-subtitle mb-2 text-muted">Status: {{ status }}</h6>
+        <button class="btn-sm btn-dark"
+          @click="enterRoom"
+          v-if="!room.ready"
+        >Enter</button>
+        <i class="fas fa-lock" v-if="room.ready"></i>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 <template>
   <div class="game">
+    {{ playerOne }} {{ playerTwo }}
     <div class="card w-75 text-center py-4 mx-auto"></div>
     <question :question="question" />
     <answer
@@ -24,14 +25,36 @@ export default {
       answer:[],
       answers: this.$store.state.answers,
       object: {},
-      score:0,
-      currentScore:0,
-      questionIndex:0
+      score: 0,
+      currentScore: 0,
+      questionIndex: 0
     }
   },
   created() {
     console.log('cek datanya ==========>', this.questions)
     this.getQuestion()
+    this.$store.dispatch('gameRoom', {
+      roomId: this.$route.params.id
+    })
+  },
+  computed: {
+    room () {
+      return this.$store.state.room
+    },
+    playerOne () {
+      if (this.$store.state.room.players.length) {
+        return this.$store.state.room.players[0]
+      } else {
+        return 'waiting 0'
+      }
+    },
+    playerTwo () {
+      if (this.$store.state.room.players.length === 2) {
+        return this.$store.state.room.players[1]
+      } else {
+        return 'waiting 1'
+      }
+    }
   },
   methods : {
     getQuestion (answer) {
