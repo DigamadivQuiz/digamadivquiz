@@ -1,7 +1,18 @@
 <template>
-  <div>
-    {{ scoreOne }}
-    {{ scoreTwo }}
+  <div class="container mt-5">
+    <div 
+      class="row"
+      v-if="winner"
+    >
+      <img src="../assets/win.jpg" alt="">
+      <h2 class="mt-3">You are the winner</h2>
+    </div>
+    <div class="row"
+      v-if="!winner"
+    >
+      <img src="../assets/lose.jpg" alt="">
+      <h2 class="mt-3">You are the loser</h2>
+    </div>
   </div>
 </template>
 
@@ -9,27 +20,21 @@
 export default {
   name: 'ScoreBoard',
   computed: {
-    room () {
-      return this.$store.state.room
-    },
-    scoreOne () {
-      if (this.$store.state.room.scoreOne) {
-        return this.$store.state.room.scoreOne
+    winner () {
+      if (this.$store.state.room.winner !== localStorage.getItem('playerName')) {
+        return false
       } else {
-        return `waiting score of player ${room.players[0]}`
-      }
-    },
-    scoreTwo () {
-      if (this.$store.state.room.scoreTwo) {
-        return this.$store.state.room.scoreTwo
-      } else {
-        return `waiting score of player ${room.players[1]}`
+        return true
       }
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
+img {
+  margin: auto;
+  max-width: 50rem;
+}
 
 </style>
