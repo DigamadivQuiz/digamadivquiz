@@ -56,7 +56,9 @@ export default new Vuex.Store({
         name: data.roomName,
         players: [data.playerName],
         ready: false,
-        playing: false
+        playing: 'wait',
+        scoreOne: 0,
+        scoreTwo: 0
       })
     },
     enterRoom({ commit }, data) {
@@ -76,7 +78,25 @@ export default new Vuex.Store({
     gamePlaying({ commit }, data) {
       const roomRef = db.collection('rooms').doc(data.roomId)
       roomRef.update({
-        playing: true
+        playing: 'play'
+      })
+    },
+    inputScore({ commit }, data) {
+      const roomRef = db.collection('rooms').doc(data.roomId)
+      if (data.scoreOne) {
+        roomRef.update({
+          scoreOne: data.scoreOne
+        })
+      } else if (data.scoreTwo) {
+        roomRef.update({
+          scoreTwo: data.scoreTwo
+        })
+      }
+    },
+    playingStat({ commit }, data) {
+      const roomRef = db.collection('rooms').doc(data.roomId)
+      roomRef.update({
+        playing: 'done'
       })
     }
   },
