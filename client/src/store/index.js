@@ -55,7 +55,8 @@ export default new Vuex.Store({
       return db.collection('rooms').add({
         name: data.roomName,
         players: [data.playerName],
-        ready: false
+        ready: false,
+        playing: false
       })
     },
     enterRoom({ commit }, data) {
@@ -71,6 +72,12 @@ export default new Vuex.Store({
           const room = doc.data()
           this.commit('setRoom', room)
         })
+    },
+    gamePlaying({ commit }, data) {
+      const roomRef = db.collection('rooms').doc(data.roomId)
+      roomRef.update({
+        playing: true
+      })
     }
   },
   modules: {

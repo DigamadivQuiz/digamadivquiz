@@ -1,5 +1,5 @@
 <template>
-  <div class="col-6 offset-3 col-md-4 offset-md-4 mt-5">
+  <div class="col-6 offset-3 col-md-4 offset-md-4 mt-5 text-center">
     <form @submit.prevent="addName">
       <div class="form-group">
         <label class="text-white" for="playerName">Player Name</label>
@@ -7,7 +7,7 @@
           v-model="playerName"
         >
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Enter Name</button>
     </form>
   </div>
 </template>

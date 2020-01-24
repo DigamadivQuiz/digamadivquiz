@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5">
+  <div class="my-5 text-center">
     <form @submit.prevent="addRoom">
       <div class="form-group">
         <label class="text-white" for="roomName">Room Name</label>
