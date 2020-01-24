@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="game">
     <div class="card w-75 text-center py-4 mx-auto"></div>
     <question :question="question" />
@@ -10,10 +11,15 @@
       @update-score="addScore"
     />
     <button @click.prevent="getQuestion">NEXT</button>
+=======
+  <div>
+    <h1>TEst</h1>
+>>>>>>> development
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import question from '@/components/Question.vue'
 import answer from '@/components/Answer.vue'
 export default {
@@ -54,8 +60,16 @@ export default {
     question,
     answer
   }
+=======
+export default {
+
+>>>>>>> development
 }
 </script>
 
 <style>
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 </style>
